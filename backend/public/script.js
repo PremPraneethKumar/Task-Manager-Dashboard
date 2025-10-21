@@ -1,5 +1,5 @@
 
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = "https://task-manager-dashboard-s7w2.onrender.com/api";
 const BASIC_AUTH_HEADER = "Basic " + btoa("admin:password123");
 const TOKEN_KEY = "auth_token";
 const USER_KEY = "auth_user";
