@@ -39,7 +39,7 @@ router.post("/signin", signinRules, validate, async (req, res) => {
 
     const payload = { userId: user._id.toString(), username: user.username, email: user.email };
     const token = jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
-
+    console.log(user);
     res.json({ token, user: payload });
   } catch (err) {
     console.error("signin error", err);

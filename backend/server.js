@@ -19,7 +19,7 @@ app.use(express.json({ limit: "5mb" }));
 app.use(morgan("dev"));
 
 // connect DB
-connectDB(process.env.MONGODB_URI || "mongodb://localhost:27017/task_manager_db").catch(err => {
+connectDB(process.env.MONGODB_URI).catch(err => {
   console.error("Failed to connect to DB", err);
   process.exit(1);
 });
