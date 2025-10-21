@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Task Manager — Tasks</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="brand-icon">
+            <path d="M3 13h8V3H3v10zM13 21h8V11h-8v10zM13 3v6h8V3h-8zM3 21h8v-6H3v6z" fill="currentColor"/>
+          </svg>
+          <span class="brand-text">Task Manager</span>
+        </div>
+      </div>
+
+      <nav class="side-nav">
+        <div class="nav-section">Main</div>
+        <a class="nav-link active" href="index.html">
+          <span class="nav-icon">ᯓ ✈︎</span><span>Tasks</span>
+        </a>
+        <a class="nav-link" href="logs.html">
+          <span class="nav-icon">ᯓ 🗐</span><span>Audit Logs</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button id="settingsBtn" class="settings-btn">⚙️ Settings</button>
+        <div id="settingsMenu" class="dropup-menu hidden">
+          <button class="drop-item" id="signinBtn">Sign In</button>
+          <button class="drop-item" id="signupBtn">Sign Up</button>
+          <button class="drop-item" id="signoutBtn">Sign Out</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="title-bar">
+          <h1 class="section-title">ᯓ 📃 Tasks</h1>
+          <div class="user-info">
+            <span class="user-icon">ᯓ ➤</span>
+            <span id="username">Guest</span>
+          </div>
+        </div>
+        <div class="underline"></div>
+      </header>
+
+      <div class="actions">
+        <div class="search-wrap">
+          <input id="searchInput" type="search" placeholder="Search by title or description" />
+          <button id="searchBtn" class="btn-ghost">Search</button>
+        </div>
+        <button id="createBtn" class="btn-primary">+ Create Task</button>
+      </div>
+
+      <section class="card list-card">
+        <div class="table-wrap">
+          <table class="task-table">
+            <thead>
+              <tr>
+                <th class="col-id">ID</th>
+                <th class="col-title">Title</th>
+                <th class="col-desc">Description</th>
+                <th class="col-date">Created At</th>
+                <th class="col-actions">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="taskBody"></tbody>
+          </table>
+        </div>
+
+        <div class="table-footer">
+          <div class="summary" id="paginationInfo">Showing 0 of 0 tasks</div>
+          <div class="pager">
+            <button id="prevPage" class="pager-btn">Prev</button>
+            <div id="pageIndicator" class="page-indicator">Page 1</div>
+            <button id="nextPage" class="pager-btn">Next</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Task Modal -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h2 id="modalTitle">Create Task</h2>
+        <button id="closeModal" class="modal-close" aria-label="Close">✕</button>
+      </div>
+
+      <form id="taskForm" class="modal-body">
+        <input type="hidden" id="taskId" />
+        <label class="form-row">
+          <span class="label">Title</span>
+          <input id="title" type="text" maxlength="100" required />
+          <small class="hint">Required — max 100 characters</small>
+        </label>
+
+        <label class="form-row">
+          <span class="label">Description</span>
+          <textarea id="description" rows="4" maxlength="500" required></textarea>
+          <small class="hint">Required — max 500 characters</small>
+        </label>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelBtn" class="btn-ghost">Cancel</button>
+          <button type="submit" class="btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Signin / Signup Modal -->
+  <div id="authModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="authModalBackdrop"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h2 id="authTitle">Sign In</h2>
+        <button id="closeAuthModal" class="modal-close" aria-label="Close">✕</button>
+      </div>
+
+      <form id="authForm" class="modal-body">
+        <div id="authFields"></div>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelAuthBtn" class="btn-ghost">Cancel</button>
+          <button type="submit" class="btn-primary" id="authSubmitBtn">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

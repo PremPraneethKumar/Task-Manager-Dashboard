@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Task Manager — Audit Logs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="brand-icon">
+            <path d="M3 13h8V3H3v10zM13 21h8V11h-8v10zM13 3v6h8V3h-8zM3 21h8v-6H3v6z" fill="currentColor"/>
+          </svg>
+          <span class="brand-text">Task Manager</span>
+        </div>
+      </div>
+
+      <nav class="side-nav">
+        <div class="nav-section">Main</div>
+        <a class="nav-link" href="index.html">
+          <span class="nav-icon">ᯓ ✈︎</span><span>Tasks</span>
+        </a>
+        <a class="nav-link active" href="logs.html">
+          <span class="nav-icon">ᯓ 🗐</span><span>Audit Logs</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button id="settingsBtn" class="settings-btn">⚙️ Settings</button>
+        <div id="settingsMenu" class="dropup-menu hidden">
+          <button class="drop-item" id="signinBtn">Sign In</button>
+          <button class="drop-item" id="signupBtn">Sign Up</button>
+          <button class="drop-item" id="signoutBtn">Sign Out</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="title-bar">
+          <h1 class="section-title">ᯓ 🧾 Audit Logs</h1>
+          <div class="user-info">
+            <span class="user-icon">ᯓ ➤</span>
+            <span id="username">Guest</span>
+          </div>
+        </div>
+        <div class="underline"></div>
+      </header>
+
+      <section class="card list-card">
+        <div class="table-wrap">
+          <table class="task-table">
+            <thead>
+              <tr>
+                <th class="col-date">Timestamp</th>
+                <th class="col-action">Action</th>
+                <th class="col-id">Task ID</th>
+                <th class="col-desc">Updated Content</th>
+              </tr>
+            </thead>
+            <tbody id="logBody"></tbody>
+          </table>
+        </div>
+
+        <div class="table-footer">
+          <div class="summary" id="logCount">0 logs</div>
+          <div></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
