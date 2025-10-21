@@ -53,8 +53,8 @@ Make sure you have the following installed:
 
 ### 2️⃣ Clone the Repository
 ```bash
-git clone https://github.com/<your-username>/task-manager-assessment.git
-cd task-manager-assessment
+git clone https://github.com/<PremPraneethKumar>/Task-Management-Dashboard.git
+cd Task Manager Dashboard
 ```
 3️⃣ Install Backend Dependencies
 ```bash
